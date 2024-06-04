@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <style>
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image:linear-gradient(-30deg, #E6F0FC, #BDE5D1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh; 
+}
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-color: rgb(26, 131, 96);
+    bo
+}
+.input-container 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-bottom: 20px;
+}
+
+.input-container input[type="text"] {
+    width: calc(50% - 15px); 
+    padding: 12px;
+    border-radius: 5px 5px 5px 5px; 
+    font-size: 16px;
+    margin-right: 20px; 
+    background-image:linear-gradient(-30deg, #E6F0FC, #BDE5D1);
+    border: none;
+}
+
+.input-container button {
+    padding: 12px 20px;
+    border: none;
+    background-color: black;
+    color: #fff;
+    font-size: 16px;
+    border-radius:5px 5px 5px 5px ;  
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.columns-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.column {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+}
+
+.column h2 {
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    background-color: whitesmoke;
+    z-index: 1;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    overflow-y: auto;
+}
+
+ul li {
+    background-image:linear-gradient(-30deg, #E6F0FC, #BDE5D1);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: drop 0.5s ease forwards;
+}
+
+.completed {
+    text-decoration: none;
+    color: #888;
+}
+
+button.delete {
+    
+    color: black;
+    border: none;
+    width: 24px;
+    height: 24px;
+}
+
+button.delete:hover {
+    background-color: #b36363;
+}
+
+button.checkmark {
+    color: black;
+    border: none;
+    width: 24px;
+    height: 24px;
+}
+
+button.checkmark:hover {
+    background-color: #5ca97e;
+}
+
+.line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: black;
+    margin-left: 50%;
+    z-index: -1;
+}
+
+.important-marker {
+    width: 24px;
+    height: 24px;
+    font-size: 18px;
+    border-radius: 50%;
+    margin-left: 10px;
+    text-align: center;
+    color: black;
+}
+.important-marker::before {
+    content: '\2605'; 
+}
+        .important-btn {
+            padding: 12px 20px;
+            border: none;
+            background-image: linear-gradient(-30deg, #E6F0FC, #BDE5D1);
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .important-btn.important-active {
+            font-weight: bold;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<div class="input-container">
+    <input type="text" id="todo-input" placeholder="Add your task">
+    <button class="add-btn" id="add-btn" type="button">+</button>
+</div>
+<div class="input-container">
+    <button class="important-btn" id="important-btn" type="button">Important</button>
+</div>
+<div class="columns-container">
+    <div class="column">
+        <h2>Pending</h2>
+        <ul id="pending-tasks"></ul>
+    </div>
+    <div class="column">
+        <h2>Completed</h2>
+        <ul id="completed-tasks"></ul>
+    </div>
+    <div class="line"></div>
+</div>
+</div>
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const todoInput = document.getElementById('todo-input');
+            const pendingTasksList = document.getElementById('pending-tasks');
+            const completedTasksList = document.getElementById('completed-tasks');
+            const addBtn = document.getElementById('add-btn');
+            const importantBtn = document.getElementById('important-btn');
+            let isImportant = false;
+
+            addBtn.addEventListener('click', function() {
+                const taskName = todoInput.value.trim();
+                if (taskName !== '') {
+                    addTask(taskName, isImportant);
+                    todoInput.value = '';
+                    isImportant = false;
+                    importantBtn.classList.remove('important-active');
+                }
+            });
+
+            importantBtn.addEventListener('click', function() {
+                isImportant = !isImportant;
+                if (isImportant) {
+                    importantBtn.classList.add('important-active');
+                } else {
+                    importantBtn.classList.remove('important-active');
+                }
+            });
+
+            function addTask(taskName, isImportant) {
+        const li = document.createElement('li');
+        const checkbox = document.createElement('button');
+        checkbox.className = 'checkmark';
+        checkbox.innerHTML = '&#10003;';
+        const span = document.createElement('span');
+        span.textContent = taskName;
+        li.appendChild(checkbox);
+        li.appendChild(span);
+        
+        if (isImportant) {
+            const importantMarker = document.createElement('div');
+            importantMarker.className = 'important-marker';
+            li.appendChild(importantMarker);
+        }
+        
+        pendingTasksList.appendChild(li);
+
+        checkbox.addEventListener('click', function() {
+            if (!li.classList.contains('completed')) {
+                markTaskAsCompleted(li);
+            } else {
+                markTaskAsPending(li);
+            }
+        });
+
+        const deleteButton = document.createElement('button');
+        deleteButton.className = 'delete';
+        deleteButton.textContent = 'x';
+        li.appendChild(deleteButton);
+
+        deleteButton.addEventListener('click', function() {
+            li.remove();
+        });
+    }
+
+    function markTaskAsCompleted(task) {
+        pendingTasksList.removeChild(task);
+        task.classList.add('priority-low'); 
+        completedTasksList.appendChild(task);
+        task.classList.add('completed');
+
+        const checkbox = task.querySelector('.checkmark');
+        checkbox.remove();
+
+        const importantMarker = task.querySelector('.important-marker');
+        if (importantMarker) {
+            importantMarker.remove();
+        }
+    }
+
+    function markTaskAsPending(task) {
+        completedTasksList.removeChild(task);
+        pendingTasksList.appendChild(task);
+        task.classList.remove('completed');
+    }
+        });
+    </script>
+</body>
+</html>

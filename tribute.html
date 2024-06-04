@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    color: #46494C;
+    font-family: Segoe UI;
+}
+
+.main_container {
+    background-color: #eee;
+    max-width: 90vw;
+    margin: auto;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+
+header h1 {
+    text-align: center;
+    font-size: 50px;
+    padding: 25px;
+}
+
+header h3 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+    padding-bottom: 20px;
+}
+
+hr {
+    width: 50%;
+    opacity: 0.5;
+    margin: auto;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #46494C;
+    font-size: 20px;
+    padding: 12px;
+}
+
+nav a:hover {
+    color: blue;
+}
+
+.main_image {
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+    text-align: center;
+    padding: 40px;
+}
+
+.main_image img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+
+.main_image p {
+    font-size: 16px;
+}
+
+/* #introduction {
+    margin-top: 25px;
+
+} */
+
+#introduction h2 {
+    text-align: center;
+    font-size: 30px;
+    padding: 5vh 20vw;
+}
+
+#introduction p {
+    text-align: justify;
+    text-justify: none;
+    margin-left: 100px;
+    margin-right: 100px;
+    line-height: 2;
+    font-size: 16px;
+}
+
+#timeline {
+    margin-top: 40px;
+}
+
+#timeline h2 {
+    text-align: center;
+    font-size: 30px;
+}
+
+#timeline ul {
+    padding: 5vh 20vw;
+    list-style: disc;
+    /* list-style-position: inside; */
+    line-height: 2;
+    font-size: 16px;
+    text-align: justify;
+    text-justify: none;
+}
+
+/* #books_info {
+    margin-top: 30px;
+} */
+
+#books_info h2 {
+    text-align: center;
+    font-size: 30px;
+    padding-top: 5vh;
+}
+
+p.content {
+    font-size: 16px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-top: 5vh;
+}
+
+#books_info ol {
+    padding: 5vh 20vw;
+    /* list-style-position: inside; */
+    line-height: 2;
+    font-size: 16px;
+    text-align: justify;
+    text-justify: none;
+}
+
+p.more_books {
+    /* margin-left: 100px;
+    margin-right: 100px; */
+    font-size: 16px;
+    padding: 0px 20vw;
+    font-weight: 500;
+    margin-top: -8px;
+}
+
+#honors_info {
+    margin-top: 16px;
+}
+
+#honors_info h2 {
+    text-align: center;
+    font-size: 30px;
+    padding-top: 5vh;
+}
+
+#honors_info ul {
+    padding: 5vh 20vw;
+    list-style: disc;
+    /* list-style-position: inside; */
+    line-height: 2;
+    font-size: 16px;
+    text-align: justify;
+    text-justify: none;
+}
+
+#more_info {
+    margin-top: 30px;
+    background-color: rgb(226, 222, 222);
+    width: 90%;
+    margin: auto;
+    border-radius: 8px;
+}
+
+.famous_quote {
+    text-align: center;
+    font-size: 16px;
+    padding-top: 5vh;
+}
+
+.read_more {
+    margin-top: 8vh;
+    font-size: 16px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+footer {
+    margin-top: 12vh;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+    .main_container {
+        max-width: 100vw;
+    }
+    .main_image img {
+        width: 180px;
+        height: 180px;
+    }
+    p.content {
+        font-size: 16px;
+        margin-left: 40px;
+        margin-right: 40px;
+        padding-top: 5vh;
+        text-align: justify;
+        text-justify: none;
+        line-height: 2;
+        font-size: 16px;
+    }
+    #introduction p {
+        text-align: justify;
+        text-justify: none;
+        margin-left: 40px;
+        margin-right: 40px;
+        line-height: 2;
+        font-size: 16px;
+    }
+    .main_image p {
+        font-size: 16px;
+        text-align: center;
+    }
+    .read_more {
+        margin-top: 4vh;
+        font-size: 16px;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    footer {
+        margin-top: 5vh;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+}
+    </style>
+    <title>Tribute Page- Dr. APJ Abdul Kalam</title>
+</head>
+
+<body>
+    <div class="main_container">
+        <header>
+            <h1>Dr. B. R. Ambedkar</h1>
+            <h3>"Father of Indian Constitution"</h3>
+        </header>
+        <hr>
+        <nav>
+
+            <a href="#">Home</a>
+            <a href="#introduction">Introduction</a>
+            <a href="#timeline">Timeline</a>
+            <a href="#books_info">Books</a>
+            <a href="#honors_info">Honours</a>
+
+        </nav>
+
+        <div class="main_image"  >
+            <img src="https://tse1.mm.bing.net/th?id=OIP._c-nHToX1YMlXuMtcSo9vAEsEs&pid=Api&P=0&h=180" alt="Dr.APJ Abdul Kalam">
+            <p>1891-1956</p>
+        </div>
+
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>Bhimrao Ramji Ambedkar ( 14 April 1891 – 6 December 1956) was an Indian jurist, economist, and social
+                        reformer who fought economic and social discrimination against the untouchables (now dalits) in India's
+                        Hindu society, and who later renounced Hinduism and inspired the Dalit Buddhist movement.
+                        Ambedkar served as chairman of the drafting committee of the Constitution of India, and Minister of Law
+                        and Justice in the first cabinet of Jawaharlal Nehru from 1947 to 1951.
+                        He is also referred to by the honorific Babasaheb.<br><br>
+                        Ambedkar was a prolific student, earning doctorates in economics from both Columbia University and the
+                        London School of Economics, gaining a reputation as a scholar for his research in law, economics and
+                        political science.In his early career, he was an economist, professor, and lawyer. His later life was
+                        marked by his political activities; he became involved in campaigning and negotiations for India's
+                        independence, publishing journals, advocating political rights and social freedom for Dalits, and
+                        contributing significantly to the establishment of the state of India. In 1956, he converted to
+                        Buddhism, initiating mass conversions of Dalits.
+                        <br>
+                        <br>
+                        In 1990, the Bharat Ratna, India's highest civilian award, was posthumously conferred on Ambedkar. The
+                        salutation Jai Bhim (lit. "Hail Bhim") used by followers honours him.</p>
+        </section>
+
+        <section id="timeline">
+            <h2>Timeline</h2>
+            <ul>
+                <li><b>1891</b> - Born at Mahu (Madhya Pradesh, India).</li>
+                <li><b>1913</b> - Passed B.A Examination with Persian and English from University of Bombay.</li>
+                <li><b>1915</b> - Passed M.A. Examination majoring in Economics and with Sociology, History Philosophy,
+                    Anthropology and Politics as the other subjects of study.
+                </li>
+                <li><b>1916</b> - Left Colombia University after completing work for the Ph.D, to join the London School of
+                    Economics and Political Science, London as a graduate student.</li>
+                <li><b>1917</b> - Columbia University conferred a Degree of Ph.D.</li>
+                <li><b>1918</b> - Professor of Political Economy in the Sydenham College of Commerce & Economics, Bombay.</li>
+                <li><b>1924</b> -Started practice in the Bombay High Court.</li>
+                <li><b>1924</b> - Founded the 'Bahishkrit Hitkarini Sabha' for the uplift of the depressed classes.</li>
+                <li><b>1925</b> - Published 'The Evolution of Provincial Finance in British India' - dissertation on the
+                    provincial decentralisation of Imperial Finance in India'.</li>
+                <li><b>1927</b> - Started a fortnightly Marathi paper Bahiskrit Bharat Dr Ambedkar himself was the
+                    editor.</li>
+                <li><b>1927</b> - Established 'Samaj Samata Sangh'.</li>
+                <li><b>1930</b> - Satyagraha at Kalram Temple. Nasik to secure for the Untouchables the right of entry into the temple.</li>
+                <li><b>1930-32</b> - Delegate. Round Table Conference representing Untouchables of India.</li>
+                <li><b>1932</b> - Signed with Mr. M.K. Gandhi the Poona Pact giving up, to save Gandhi's life. separate electorates granted to the Depressed Classes by Ramsay MacDonald's Communal Award, and accepting, instead representation through joint electorates.
+                </li>
+                <li><b> 1932-34</b> - Member joint Parliamentary Committee on the Indian Constitutional Reform
+                </li>
+                <li><b>1947</b> - India obtained her Independence. Dr Ambedkar was elected to the Constituent Assembly by the Bombay Legislature Congress Party. Dr Ambedkar joined Nehru's Cabinet. He became the First Law Minister of Independent India. The Constituent Assembly appointed him to the drafting Committee, which elected him as a Chairman on 29th August 1947.
+                </li>
+                <li><b>1948</b> - Dr Ambedkar completed the Draft Constitution of Indian Republic.</li>
+                <li><b>1951</b>  - Dr Ambedkar founded "The Bhartiya Buddha Jansangh".</li>
+                <li><b>1952</b> - Columbia University (USA) conferred the honorary Degree of LL.D., in its Bi-Centennial Celebrations Special Convocation held in New York.</li>
+                <li><b>1956</b> - Died and Cremation at Dadar Chawpatti – Now known as Chaitya Bhoomi Dadar (Bombay).</li>
+            </ul>
+
+        </section>
+        <section id="books_info">
+            <h2>His Famous Books</h2>
+            <p class="content">The People's President also had a blessed talent of writing books, which made him more admiring and inspiring.</p>
+            <ol>
+                <li>Annihilation of Caste</li>
+                <li>‘Who Were the Shudras?’</li>
+                <li>Waiting for a Visa.</li>
+                <li> Buddha and his Dhamma</li>
+                <li> Problem of Rupees (Its origin and solution)</li>
+                <li>Rise and Fall of Hindu Women </li>
+            </ol>
+
+            
+
+        </section>
+        
+        
+            <footer>
+                <p> by Nanda Sohan Gangula </p>
+            </footer>
+
+
+    </div>
+
+</body>
+
+</html>
